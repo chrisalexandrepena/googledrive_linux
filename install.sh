@@ -1,0 +1,1 @@
+echo "coucou je suis l'installeur!"
