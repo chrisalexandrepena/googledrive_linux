@@ -15,22 +15,9 @@ app.on('ready', () => {
 	mainWindow.loadURL(`file://${path.join(__dirname, 'templates/main.html')}`);
 	mainTray = new Tray(path.join(__dirname, 'static/icons/drive.png'));
 
-	const mainMenu = Menu.buildFromTemplate([
-		{
-			label: 'Settings',
-			type: 'normal',
-			click: (menuItem, window, event) => {
-				mainWindow.isVisible() ? mainWindow.hide() : mainWindow.show();
-				console.log('click!');
-			}
-		}
-	]);
-
 	mainTray.setToolTip('Google Drive');
-	mainTray.setContextMenu(mainMenu);
 	mainTray.on('click', () => {
 		mainWindow.isVisible() ? mainWindow.hide() : mainWindow.show();
 		console.log('click!');
 	});
-	// console.log(process.platform);
 });
